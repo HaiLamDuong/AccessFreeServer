@@ -1,0 +1,17 @@
+name: Access Free Server
+
+on:
+  schedule:
+    - cron: "*/10 * * * *" # Every 10 minutes
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Script
+        env:
+          URL: ${{ secrets.URL }}
+        run: |
+          curl $URL > /dev/null && echo "Done"
