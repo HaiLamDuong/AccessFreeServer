@@ -14,4 +14,4 @@ jobs:
         env:
           URL: ${{ secrets.URL }}
         run: |
-          curl $URL
+          curl $URL > /dev/null && echo "Done"
